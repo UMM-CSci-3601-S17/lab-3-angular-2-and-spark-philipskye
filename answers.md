@@ -33,6 +33,41 @@ A: We have noticed that a new directory has been added that is named 'yarn'. We 
 
 Q: How does the navbar work in this project? Is our SparkJava server the only thing doing routing? 
 
-A: The navbar uses the navbar.component.html file which helps to route the client to the appropriate destinations.
+A: The navbar specifies 3 list items: Home, Kittens and Users. These list items are each given the property named 'routerLink'.
+   This property is an Angular specific feature that uses the file named 'app.routes.ts' to route to the appropriate
+   component for each navbar list item. For instance, this list item:
+   
+    <li><a [routerLink]="['/kittens']">Kittens</a></li>
+    
+   specifies a routerLink for '/kittens'. If we look in the file name app.routes.ts we see:
+    
+    { path: 'kittens', component: KittensComponent }
+    
+   which says that when the path 'kittens' is used the Client server must route to the KittensComponent.
+   If we look in the file named kittens.component.ts we will see the following line:
+   
+    export class KittensComponent {}
+    
+   which is the name of the component that the app.routes.ts file routes '/kittens' to.
+   It's also worth noting that this code snippet in kittens.component.ts:
+   
+    @Component({
+        templateUrl: 'kittens.component.html'
+    })
+    
+   links the kittens.component.ts file to the kittens.component.html file. 
+   
+   In conclusion, Java Spark is not the only thing doing the routing.
+   
+Q: What does the user-list.service.ts do? Why is it not just done in the user-list.component.ts? 
+
+A: The user-list.service.ts actually gets the user data while the user-list.component.ts presents the data
+   in the browser (along with user-list.component.html).
+   
+   
+   
+   
+   
+   
     
    
