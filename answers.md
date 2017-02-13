@@ -33,6 +33,6 @@ A: We have noticed that a new directory has been added that is named 'yarn'. We 
 
 Q: How does the navbar work in this project? Is our SparkJava server the only thing doing routing? 
 
-A: 
+A: The navbar uses the navbar.component.html file which helps to route the client to the appropriate destinations.
     
    
