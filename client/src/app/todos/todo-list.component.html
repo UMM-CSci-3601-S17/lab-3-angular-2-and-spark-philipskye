@@ -1,0 +1,38 @@
+<ul class="list-group">
+    <li class="list-group-item list-group-item-info">
+        <input #input type="text" placeholder="Filter" [(ngModel)]="search">
+    </li>
+
+
+    <!--<li class="list-group-item list-group-item-info">Todos</li>-->
+    <!--<li *ngFor="let todo of todos | async | filterBy: {owner: search}" class="list-group-item">-->
+        <!--Owner: {{ todo.owner }} <br>-->
+        <!--Status: {{ todo.status }} <br>-->
+    <!--</li>-->
+
+    <table style="width:100%">
+
+        <thead class="list-group-item list-group-item-info">
+            <th style="padding-right: 150px">Owner</th>
+            <th style="padding-right: 150px">ID</th>
+            <th style="padding-right: 150px">Category</th>
+            <th style="padding-right: 150px">Status</th>
+            <th style="padding-right: 150px">Body</th>
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let todo of todos | async" class="list-group-item">
+                <td style="padding-right: 150px">{{todo.owner}}</td>
+                <td style="padding-right: 150px">{{todo._id}}</td>
+                <td style="padding-right: 150px">{{todo.category}}</td>
+                <td style="padding-right: 150px">{{todo.status}}</td>
+                <td style="padding-right: 150px">{{todo.body}}</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+</ul>

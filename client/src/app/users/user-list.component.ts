@@ -8,7 +8,6 @@ import { FilterBy } from "./filter.pipe";
     providers: [UserListService],
     templateUrl: 'user-list.component.html',
 })
-
 export class UserListComponent {
     private users: any;
 
