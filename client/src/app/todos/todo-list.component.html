@@ -10,11 +10,13 @@
         background-color: #337ab7;
         color: white;
     }
+    input{
+        width: auto;
+    }
 </style>
 
 <ul class="list-group">
 
-    <input #input type="text" placeholder="Filter" [(ngModel)]="search">
 
     <table class="table table-bordered table-hover table-striped">
 
@@ -26,11 +28,40 @@
                 <th>Status</th>
                 <th>Body</th>
             </tr>
+
+            <tr>
+                <th>
+                    <input #input class="form-control" type="text" placeholder="Filter Owner" [(ngModel)]="searchOwner">
+                </th>
+                <th>
+                    <input #input class="form-control" type="text" placeholder="Filter ID" [(ngModel)]="searchID">
+                </th>
+                <th>
+                    <input #input class="form-control" type="text" placeholder="Filter ID" [(ngModel)]="searchCategory">
+                </th>
+
+                <th>
+                    <select class="form-control">
+                        <option></option>
+                        <option>True</option>
+                        <option>False</option>
+                    </select>
+                </th>
+
+                <th>
+                    <input #input class="form-control" type="text" placeholder="Filter ID" [(ngModel)]="searchBody">
+                </th>
+            </tr>
+
         </thead>
 
         <tbody>
 
-            <tr class="bg-info" *ngFor="let todo of todos | async">
+            <tr class="bg-info" *ngFor="let todo of todos | async | filterBy: {owner: searchOwner} |
+                                                                    filterBy: {_id: searchID} |
+                                                                    filterBy: {category: searchCategory} |
+                                                                    filterBy: {status: searchStatus} |
+                                                                    filterBy: {body: searchBody} ">
                 <td >{{todo.owner}}</td>
                 <td >{{todo._id}}</td>
                 <td >{{todo.category}}</td>
