@@ -10,9 +10,10 @@
         background-color: #337ab7;
         color: white;
     }
-    input{
+    input, select{
         width: auto;
     }
+
 </style>
 
 <ul class="list-group">
@@ -37,19 +38,18 @@
                     <input #input class="form-control" type="text" placeholder="Filter ID" [(ngModel)]="searchID">
                 </th>
                 <th>
-                    <input #input class="form-control" type="text" placeholder="Filter ID" [(ngModel)]="searchCategory">
+                    <input #input class="form-control" type="text" placeholder="Filter Category" [(ngModel)]="searchCategory">
                 </th>
 
                 <th>
-                    <select class="form-control">
-                        <option></option>
-                        <option>True</option>
-                        <option>False</option>
+                    <select class="form-control" [(ngModel)]="searchStatus">
+                        <option value="1">true</option>
+                        <option value="0">false</option>
                     </select>
                 </th>
 
                 <th>
-                    <input #input class="form-control" type="text" placeholder="Filter ID" [(ngModel)]="searchBody">
+                    <input #input class="form-control" type="text" placeholder="Filter body" [(ngModel)]="searchBody">
                 </th>
             </tr>
 
