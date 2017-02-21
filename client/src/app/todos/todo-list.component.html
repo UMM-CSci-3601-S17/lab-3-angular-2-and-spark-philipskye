@@ -31,17 +31,17 @@
 
             <tr>
                 <th>
-                    <input #input class="form-control" type="text" placeholder="Filter Owner" [(ngModel)]="searchOwner">
+                    <input #input class="form-control" type="text" placeholder="Filter Owner" (input)="searchOwner = $event.target.value">
                 </th>
                 <th>
-                    <input #input class="form-control" type="text" placeholder="Filter ID" [(ngModel)]="searchID">
+                    <input #input class="form-control" type="text" placeholder="Filter ID" (input)="searchID = $event.target.value">
                 </th>
                 <th>
-                    <input #input class="form-control" type="text" placeholder="Filter Category" [(ngModel)]="searchCategory">
+                    <input #input class="form-control" type="text" placeholder="Filter Category" (input)="searchCategory = $event.target.value">
                 </th>
 
                 <th>
-                    <select class="form-control" [(ngModel)]="searchStatus">
+                    <select class="form-control" (input)="searchStatus = $event.target.value">
                         <option value=""></option>
                         <option value="1">true</option>
                         <option value="0">false</option>
@@ -49,7 +49,7 @@
                 </th>
 
                 <th>
-                    <input #input class="form-control" type="text" placeholder="Filter body" [(ngModel)]="searchBody">
+                    <input #input class="form-control" type="text" placeholder="Filter body" (input)="searchBody = $event.target.value">
                 </th>
             </tr>
 
@@ -57,7 +57,7 @@
 
         <tbody>
 
-            <tr class="bg-info" *ngFor="let todo of todos | async | filterBy: {owner: searchOwner} |
+            <tr class="bg-info" *ngFor="let todo of todos | filterBy: {owner: searchOwner} |
                                                                     filterBy: {_id: searchID} |
                                                                     filterBy: {category: searchCategory} |
                                                                     filterBy: {status: searchStatus} |

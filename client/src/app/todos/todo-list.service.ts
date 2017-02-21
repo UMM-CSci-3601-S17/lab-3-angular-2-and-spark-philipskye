@@ -12,4 +12,8 @@ export class TodoListService{
         let body = this.http.request(this.baseUrl + 'todos').map(res => res.json());
         return body;
     }
+
+    getTodoById(id: string): Observable<Todo> {
+        return this.http.request(this.baseUrl + "/" + id).map(res => res.json());
+    }
 }
